@@ -61,3 +61,6 @@ electron.vite.config.*.mjs
 
 .playwright-cli
 worktrees
+
+# Private distribution, caches and runtime profiles for the personal fork.
+distribution/

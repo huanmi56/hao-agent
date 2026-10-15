@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="pi-plugin-chrome" content="v2"><title>Hao Agent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><span class="mark">H</span><div><h1>Hao Agent</h1><p data-i18n="subtitle"></p></div><span class="version">0.1</span></header>
+  <main>
+    <p class="notice" data-i18n="connect"></p>
+    <section class="scheduler"><div class="dot"></div><div><strong data-i18n="scheduler"></strong><p data-i18n="schedulerHint"></p></div></section>
+    <section><h2 data-i18n="roles"></h2><form id="assignments"><div id="roles" class="roles"></div><div class="actions"><button type="submit" data-i18n="save"></button><button type="button" id="suggest" class="secondary" data-i18n="suggest"></button><button type="button" id="refresh" class="secondary" data-i18n="refresh"></button></div></form><p id="status" role="status" aria-live="polite"></p></section>
+    <section class="budget"><h2 data-i18n="budget"></h2><p data-i18n="budgetHint"></p><p data-i18n="context"></p></section>
+    <p class="notice" data-i18n="start"></p>
+    <section><h2 data-i18n="jobs"></h2><div id="jobs"></div></section>
+  </main>
+  <footer data-i18n="privacy"></footer>
+  <script src="messages.js"></script><script src="panel.js"></script>
+</body>
+</html>

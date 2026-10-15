@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "local.hao-agent",
+  "name": "Hao Agent",
+  "version": "0.1.0",
+  "description": "A budgeted Astra decision layer with OpenCode Go execution, report review and text roles.",
+  "author": "Hao",
+  "main": "main.js",
+  "i18n": { "zh-CN": { "name": "Hao Agent", "description": "Astra 关键决策，OpenCode Go 执行、报告审阅与文本输出。" } },
+  "ui": { "panel": "renderer/index.html", "width": 1050, "height": 780, "title": "Hao Agent" },
+  "contributes": {
+    "commands": [{ "id": "hao-agent.open", "title": "Hao Agent: Model Workbench", "keywords": ["hao", "budget", "models"] }],
+    "skills": ["./skills/hao-agent.md"],
+    "agentTools": [{
+      "name": "hao_task",
+      "description": "Plan, execute, inspect, review or cancel a budgeted Hao Agent task.",
+      "risk": "high",
+      "schema": {
+        "type": "object", "additionalProperties": false,
+        "properties": {
+          "action": { "type": "string", "enum": ["start", "advance", "status", "cancel"] },
+          "kind": { "type": "string", "enum": ["coding", "text"] },
+          "request": { "type": "string", "maxLength": 12000 },
+          "context": { "type": "string", "maxLength": 6000 },
+          "jobId": { "type": "string" }
+        },
+        "required": ["action"]
+      }
+    }]
+  },
+  "permissions": ["ui.panel", "models.list", "agent.complete", "agent.tool.register", "agent.prompt.inject", "desktop.control"],
+  "engines": { "piDesktop": ">=0.20.1" },
+  "activationEvents": ["onStartup", "onCommand:hao-agent.open"]
+}

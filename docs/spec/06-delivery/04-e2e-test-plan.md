@@ -8,6 +8,32 @@
 
 ## 1. Goals
 
+### E2E-HAO-personal-model-workflow
+
+- **Preconditions:** Personal plugin source, Node 24, and the digest-verified
+  PI-Desktop 0.20.1 portable release on D. Use isolated D-drive profiles and
+  mocked providers; never use a real account or paid completion in this harness.
+- **Steps:** Pack with the upstream devkit. Ask the native release host to
+  install without grants and expect denial; install disabled with explicit
+  fixture grants. Load the actual isolated Node plugin process, open its panel
+  state, save connected model assignments and run a text-only tool invocation.
+  Exercise coding DAGs, exact-delivery recovery, cancellation and review gates
+  through the engine with deterministic host fixtures.
+- **Expected:** The host rejects missing grants and preserves disabled state.
+  The plugin process loads real entry points; text uses Go without Astra.
+  Writers serialize, duplicate requests do not rebill, interrupted paid calls
+  pause, and findings or missing evidence block a success summary.
+- **Coverage:** `node scripts/build-hao-agent.mjs`, then
+  `node --test scripts/hao-agent-host.test.mjs examples/plugins/hao-agent/test/*.test.cjs`.
+  This is native-host/plugin-process integration plus workflow coverage; it does
+  not replace rendered Electron acceptance or live subscription authentication.
+  `scripts/hao-agent-panel.test.mjs` additionally renders the real panel in an
+  isolated browser using a fixture bridge, checks assignment saving and offline
+  behavior, and captures desktop/mobile layouts. Supply an installed Playwright
+  module/browser through the documented environment variables; no download or
+  live provider is required.
+- **Specs:** [Hao Agent](../07-plugins/hao-agent-personal-workflow.md).
+
 ### E2E-QUEUE-send-now-wakes-subagents
 
 - **Preconditions:** Dedicated request worktree with built workspace packages,
